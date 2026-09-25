@@ -30,7 +30,14 @@ GNS3 GUI работает в Windows и подключается к GNS3 VM в V
 ![test_project](images/image6.png)
 
 
-Дали IP и проверяем сеть:
+Дали IP 
+
+PC1: `ip 10.10.0.1`
+PC2: `ip 10.10.0.1`
+
+и проверяем сеть:
 ![check](images/image7.png)
 
 Сеть работает.
+
+Сохраняемся `save`.
