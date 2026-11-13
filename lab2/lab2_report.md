@@ -5,7 +5,7 @@
 Топология сети:
 Устройства были успешно подключены: PC1 — Switch1 — Router (SONiC) — Switch2 — PC2.
 
-![topology](images/image1.png)
+![topology](pic/image1.png)
 
 ### Распределение IP-адресов
 
@@ -32,7 +32,7 @@ sudo config interface ip add Ethernet4 192.168.20.1/24
 
 `ip route`
 
-![routes](images/image2.png)
+![routes](pic/image2.png)
 
 ### Настройка хостов
 
@@ -46,7 +46,7 @@ PC2:
 
 `ip 192.168.20.10 255.255.255.0 192.168.20.1`
 
-![hosts](images/image3.png)
+![hosts](pic/image3.png)
 
 Связь между узлами успешно работает: хосты успешно пингуют свои шлюзы на SONiC и друг друга через маршрутизатор.
 
