@@ -1,0 +1,10 @@
+# Containerlab generated runtime state, including local TLS private keys.
+/clab-panina-l5/
+
+# Temporary PDF renders and Python cache files.
+/tmp/
+__pycache__/
+*.py[cod]
+
+# Local-only credentials.
+.env

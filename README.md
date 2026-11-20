@@ -14,3 +14,4 @@ Author: Panina Anna Sergeevna
 * **Лабораторная работа №2:** ["Настройка маршрутизатора SONiC в GNS3 и построение простой сети"](./lab2/lab2_report.md)
 * **Лабораторная работа №3:** ["Настройка VXLAN в GNS3 на базе двух маршрутизаторов SONiC"](./lab3/lab3_report.md)
 * **Лабораторная работа №4:** ["SDN: OpenFlow 1.3, Open vSwitch и OpenDaylight"](./lab4/lab4_report.md)
+* **Лабораторная работа №5:** [MikroTik CHR как vCPE"](./lab5/lab5_report.md)

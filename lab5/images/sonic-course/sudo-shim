@@ -1,0 +1,3 @@
+#!/bin/sh
+# SONiC runs as root in this course image; execute its CLI command directly.
+exec "$@"

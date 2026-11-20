@@ -1,0 +1,53 @@
+name: panina-l5
+
+mgmt:
+  network: clab-panina-l5
+  ipv4-subnet: 10.105.3.0/24
+
+topology:
+  kinds:
+    sonic-vs:
+      image: sonic-course:202511
+    mikrotik_ros:
+      image: vrnetlab/mikrotik_routeros:7.23.8
+    linux:
+      image: lab-tools:1.0
+
+  nodes:
+    dc1:
+      kind: sonic-vs
+      mgmt-ipv4: 10.105.3.11
+    hq:
+      kind: mikrotik_ros
+      mgmt-ipv4: 10.105.3.12
+    br:
+      kind: mikrotik_ros
+      mgmt-ipv4: 10.105.3.13
+    srv1:
+      kind: linux
+      mgmt-ipv4: 10.105.3.14
+      exec:
+        - ip addr add 10.3.100.10/24 dev eth1
+        - ip route replace default via 10.3.100.1 dev eth1
+    pcb:
+      kind: linux
+      mgmt-ipv4: 10.105.3.15
+      exec:
+        - ip addr add 10.3.200.10/24 dev eth1
+        - ip route replace default via 10.3.200.1 dev eth1
+    isp:
+      kind: linux
+      mgmt-ipv4: 10.105.3.16
+      cmd: python3 -u -m http.server 80
+      exec:
+        - ip addr add 100.64.1.1/30 dev eth1
+        - ip addr add 100.64.2.1/30 dev eth2
+        - ip addr add 198.51.100.1/32 dev lo
+        - sysctl -w net.ipv4.ip_forward=1
+
+  links:
+    - endpoints: ["srv1:eth1", "dc1:eth1"]
+    - endpoints: ["dc1:eth2", "hq:ether2"]
+    - endpoints: ["hq:ether3", "isp:eth1"]
+    - endpoints: ["br:ether2", "isp:eth2"]
+    - endpoints: ["br:ether3", "pcb:eth1"]
